@@ -1,9 +1,8 @@
 #!/bin/bash
-
 Icon="/PATH/TO/ICON_ON"
 Icoff="/PATH_TO_ICON_OFF"
 fconfig=".keyboard" 
-id=15
+id=$(xinput list --id-only 'AT Translated Set 2 keyboard')
 
 if [ ! -f $fconfig ]; then
   echo "Creating config file"
