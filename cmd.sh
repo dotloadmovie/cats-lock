@@ -1,4 +1,8 @@
 #!/bin/bash
+# Bash script to enable/disable keyboard: https://askubuntu.com/a/713597
+# by mxdsp: https://askubuntu.com/users/458410/mxdsp 
+# is licensed under http://creativecommons.org/licenses/by/4.0
+
 Icon="/PATH/TO/ICON_ON"
 Icoff="/PATH_TO_ICON_OFF"
 fconfig=".keyboard" 
