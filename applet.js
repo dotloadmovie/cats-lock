@@ -5,11 +5,16 @@ const STATES = {
   unlocked: {
     desc: "Keyboard UNLOCKED. Click here to lock",
     icon: "cat",
+    response: "disable keyboard",
   },
   locked: {
     desc: "Keyboard LOCKED. Click here to unlock",
+    icon: "cat-locked",
+    response: "enable keyboard",
   },
 };
+
+let self = null;
 
 function MyApplet(orientation, panel_height, instance_id) {
   this._init(orientation, panel_height, instance_id);
@@ -26,6 +31,8 @@ MyApplet.prototype = {
       instance_id
     );
 
+    self = this;
+
     this.set_applet_icon_name(STATES.unlocked.icon);
     this.set_applet_tooltip(_(STATES.unlocked.desc));
   },
@@ -34,7 +41,15 @@ MyApplet.prototype = {
     Util.spawnCommandLineAsyncIO(
       "sh " + PATH + "/cmd.sh",
       function (stdOut, stdErr) {
-        global.log(stdOut, stdErr);
+        if (stdOut.indexOf(STATES.locked.response) > -1) {
+          self.set_applet_icon_name(STATES.unlocked.icon);
+          self.set_applet_tooltip(_(STATES.unlocked.desc));
+        }
+
+        if (stdOut.indexOf(STATES.unlocked.response) > -1) {
+          self.set_applet_icon_name(STATES.locked.icon);
+          self.set_applet_tooltip(_(STATES.locked.desc));
+        }
       }
     );
   },
