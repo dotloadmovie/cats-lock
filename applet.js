@@ -16,11 +16,11 @@ const STATES = {
 
 let self = null;
 
-function MyApplet(orientation, panel_height, instance_id) {
+function CatsLock(orientation, panel_height, instance_id) {
   this._init(orientation, panel_height, instance_id);
 }
 
-MyApplet.prototype = {
+CatsLock.prototype = {
   __proto__: Applet.IconApplet.prototype,
 
   _init: function (orientation, panel_height, instance_id) {
@@ -56,5 +56,5 @@ MyApplet.prototype = {
 };
 
 function main(metadata, orientation, panel_height, instance_id) {
-  return new MyApplet(orientation, panel_height, instance_id);
+  return new CatsLock(orientation, panel_height, instance_id);
 }
