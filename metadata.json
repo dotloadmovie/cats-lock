@@ -1,0 +1,6 @@
+{
+  "uuid": "cats-lock@cinnamon.org",
+  "name": "Cats Lock",
+  "description": "Click on the applet to lock/unlock the keyboard",
+  "icon": "cat"
+}
