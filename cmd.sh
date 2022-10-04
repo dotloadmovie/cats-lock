@@ -18,12 +18,12 @@ else
 fi
 
 if [ "$var" = "disabled" ]; then
-  notify-send -i $Icon "Enabling keyboard..." \ "ON - Keyboard connected !";
+  notify-send -i $Icon "Enabling keyboard." \ "ON - Keyboard connected. Miaow!";
   echo "enable keyboard..."
   xinput enable $id
   echo "enabled" > $fconfig
 elif [ "$var" = "enabled" ]; then
-  notify-send -i $Icoff "Disabling Keyboard" \ "OFF - Keyboard disconnected";
+  notify-send -i $Icoff "Disabling Keyboard." \ "OFF - Keyboard disconnected. Miaow!";
   echo "disable keyboard"
   xinput disable $id
   echo 'disabled' > $fconfig
